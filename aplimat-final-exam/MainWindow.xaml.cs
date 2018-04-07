@@ -123,14 +123,6 @@ namespace aplimat_final_exam
             {
 
             }
-
-            //myCube.ApplyGravity();
-
-            //if (myCube.Position.y <= -50)
-            //{
-            //    myCube.Position.y = -50;
-            //    myc
-            //}
         }
     }
 }

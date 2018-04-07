@@ -79,5 +79,18 @@ namespace aplimat_final_exam.Models
             this.Position += this.Velocity;
             this.Acceleration *= 0;
         }
+
+        public bool HasCollidedWith(CubeMesh target)
+        {
+            bool xHasNotCollided = this.Position.x - this.Scale.x > target.Position.x + target.Scale.x ||
+                this.Position.x + this.Scale.x < target.Position.x - target.Scale.x;
+
+            bool yHasNotCollided = this.Position.y - this.Scale.y > target.Position.y + target.Scale.y ||
+                this.Position.y + this.Scale.y < target.Position.y - target.Scale.y;
+            bool zHasNotCollided = this.Position.z - this.Scale.z > target.Position.z + target.Scale.z ||
+                this.Position.z + this.Scale.z < target.Position.z - target.Scale.z;
+
+            return !(xHasNotCollided || yHasNotCollided || zHasNotCollided);
+        }
     }
 }

@@ -22,3 +22,6 @@ c:\users\johndale\source\repos\aplimat-final-exam\aplimat-final-exam\obj\Debug\a
 c:\users\johndale\source\repos\aplimat-final-exam\aplimat-final-exam\obj\Debug\aplimat-final-exam.csproj.CoreCompileInputs.cache
 c:\users\johndale\source\repos\aplimat-final-exam\aplimat-final-exam\obj\Debug\aplimat-final-exam.exe
 c:\users\johndale\source\repos\aplimat-final-exam\aplimat-final-exam\obj\Debug\aplimat-final-exam.pdb
+C:\Users\11412709\Documents\aplimat-finals\aplimat-final-exam\bin\Debug\aplimat-final-exam.exe.config
+C:\Users\11412709\Documents\aplimat-finals\aplimat-final-exam\obj\Debug\aplimat-final-exam.exe
+C:\Users\11412709\Documents\aplimat-finals\aplimat-final-exam\obj\Debug\aplimat-final-exam.pdb
