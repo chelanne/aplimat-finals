@@ -25,3 +25,27 @@ c:\users\johndale\source\repos\aplimat-final-exam\aplimat-final-exam\obj\Debug\a
 C:\Users\11412709\Documents\aplimat-finals\aplimat-final-exam\bin\Debug\aplimat-final-exam.exe.config
 C:\Users\11412709\Documents\aplimat-finals\aplimat-final-exam\obj\Debug\aplimat-final-exam.exe
 C:\Users\11412709\Documents\aplimat-finals\aplimat-final-exam\obj\Debug\aplimat-final-exam.pdb
+C:\Users\Chelsea Anne\Documents\aplimat-finals\aplimat-final-exam\bin\Debug\aplimat-final-exam.exe.config
+C:\Users\Chelsea Anne\Documents\aplimat-finals\aplimat-final-exam\bin\Debug\aplimat-final-exam.exe
+C:\Users\Chelsea Anne\Documents\aplimat-finals\aplimat-final-exam\bin\Debug\aplimat-final-exam.pdb
+C:\Users\Chelsea Anne\Documents\aplimat-finals\aplimat-final-exam\bin\Debug\SharpGL.dll
+C:\Users\Chelsea Anne\Documents\aplimat-finals\aplimat-final-exam\bin\Debug\SharpGL.SceneGraph.dll
+C:\Users\Chelsea Anne\Documents\aplimat-finals\aplimat-final-exam\bin\Debug\SharpGL.WPF.dll
+C:\Users\Chelsea Anne\Documents\aplimat-finals\aplimat-final-exam\bin\Debug\SharpGL.pdb
+C:\Users\Chelsea Anne\Documents\aplimat-finals\aplimat-final-exam\bin\Debug\SharpGL.xml
+C:\Users\Chelsea Anne\Documents\aplimat-finals\aplimat-final-exam\bin\Debug\SharpGL.SceneGraph.pdb
+C:\Users\Chelsea Anne\Documents\aplimat-finals\aplimat-final-exam\bin\Debug\SharpGL.SceneGraph.xml
+C:\Users\Chelsea Anne\Documents\aplimat-finals\aplimat-final-exam\bin\Debug\SharpGL.WPF.pdb
+C:\Users\Chelsea Anne\Documents\aplimat-finals\aplimat-final-exam\bin\Debug\SharpGL.WPF.xml
+C:\Users\Chelsea Anne\Documents\aplimat-finals\aplimat-final-exam\obj\Debug\aplimat-final-exam.csprojResolveAssemblyReference.cache
+C:\Users\Chelsea Anne\Documents\aplimat-finals\aplimat-final-exam\obj\Debug\MainWindow.g.cs
+C:\Users\Chelsea Anne\Documents\aplimat-finals\aplimat-final-exam\obj\Debug\App.g.cs
+C:\Users\Chelsea Anne\Documents\aplimat-finals\aplimat-final-exam\obj\Debug\aplimat-final-exam_MarkupCompile.cache
+C:\Users\Chelsea Anne\Documents\aplimat-finals\aplimat-final-exam\obj\Debug\aplimat-final-exam_MarkupCompile.lref
+C:\Users\Chelsea Anne\Documents\aplimat-finals\aplimat-final-exam\obj\Debug\MainWindow.baml
+C:\Users\Chelsea Anne\Documents\aplimat-finals\aplimat-final-exam\obj\Debug\aplimat-final-exam.g.resources
+C:\Users\Chelsea Anne\Documents\aplimat-finals\aplimat-final-exam\obj\Debug\aplimat_final_exam.Properties.Resources.resources
+C:\Users\Chelsea Anne\Documents\aplimat-finals\aplimat-final-exam\obj\Debug\aplimat-final-exam.csproj.GenerateResource.Cache
+C:\Users\Chelsea Anne\Documents\aplimat-finals\aplimat-final-exam\obj\Debug\aplimat-final-exam.csproj.CoreCompileInputs.cache
+C:\Users\Chelsea Anne\Documents\aplimat-finals\aplimat-final-exam\obj\Debug\aplimat-final-exam.exe
+C:\Users\Chelsea Anne\Documents\aplimat-finals\aplimat-final-exam\obj\Debug\aplimat-final-exam.pdb

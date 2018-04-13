@@ -1,5 +1,4 @@
-﻿using aplimat_final_exam.Models;
-using SharpGL;
+﻿using SharpGL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +14,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using aplimat_final_exam.Models;
+using aplimat_final_exam.Utilities;
+
 namespace aplimat_final_exam
 {
     /// <summary>
@@ -23,6 +25,17 @@ namespace aplimat_final_exam
     public partial class MainWindow : Window
     {
         private Vector3 mousePos = new Vector3();
+        private List<CubeMesh> cubes = new List<CubeMesh>();
+        private Vector3 gravity = new Vector3(0, -.2f, 0);
+        private Vector3 mGravity = new Vector3();
+        private float yBottom = -45;
+        private float speed = 0.1f;
+        private CubeMesh mouseHitBox = new CubeMesh()
+        {
+            Position = new Vector3(0, 0, 0)
+        };
+        private int count = 0;
+        private int frames = 0;
 
         #region Initialization
         public MainWindow()
@@ -64,23 +77,22 @@ namespace aplimat_final_exam
             var position = e.GetPosition(this);
             mousePos.x = (float)position.X - (float)Width / 2.0f;
             mousePos.y = -((float)position.Y - (float)Height / 2.0f);
+
+            /*foreach(var c in cubes)
+            {
+                mousePos.Normalize();
+                mousePos /= 10;
+                c.ApplyForce(mousePos);
+            }*/
         }
         #endregion
 
-
+        #region KeyPress
         private void ManageKeyPress()
         {
 
         }
-
-        private CubeMesh myCube = new CubeMesh();
-        private float speed = 0.1f;
-        private float bulletSpeed = 3.0f;
-
-        private CubeMesh bullet = new CubeMesh()
-        {
-            Position = new Vector3(100, 100, 0)
-        };
+        #endregion
 
         private void OpenGLControl_OpenGLDraw(object sender, SharpGL.SceneGraph.OpenGLEventArgs args)
         {
@@ -94,35 +106,69 @@ namespace aplimat_final_exam
             gl.LoadIdentity();
             gl.Translate(0.0f, 0.0f, -100.0f);
 
-            gl.Color(1.0, 0.0, 0.0);
-            myCube.Draw(gl);
+            // Draw
 
-            gl.Color(1.0, 1.0, 1.0);
-            bullet.Draw(gl);
+            mousePos.Normalize();
+            mousePos *= 10;
+            mGravity = mousePos;
+            mouseHitBox.Scale = new Vector3(1.0f,1.0f,1.0f);
 
-            if (Keyboard.IsKeyDown(Key.W))
-            { 
-                myCube.ApplyForce(Vector3.Up * speed);
-            }
-
-            if (Keyboard.IsKeyDown(Key.D))
+            frames++;
+            if (frames % 10 == 0 && count < 20)
             {
-                myCube.ApplyForce(Vector3.Right * speed);
+                CubeMesh cube = new CubeMesh();
+                float x = (float)Randomizer.Generate(-10, 10);
+                float y = (float)Randomizer.Generate(30, 35);
+                float z = 0;
+                cube.Position = new Vector3(x, y, z);
+                float cubeScale = (float)Randomizer.Generate(0, 3);
+                cube.Scale *= cubeScale;
+                cube.Mass = (float)Randomizer.Generate(1, 6);
+                cubes.Add(cube);
+                count++;
+            }
+            
+            foreach (var c in cubes)
+            {
+                c.ApplyGravity();
+                if (c.Position.y <= yBottom)
+                {
+                    c.Velocity.y *= -1;
+                    c.Velocity /= 2;
+                }
+                if (c.HasCollidedWith(mouseHitBox))
+                {
+                    Console.WriteLine("HIT");
+                    //mouseHitBox.Position.x--;
+                    c.Velocity *= -1;
+                }
+                gl.Color(1.0f, 1.0f, 1.0f);
+                c.Draw(gl);
             }
 
+            if(Keyboard.IsKeyDown(Key.W))
+            {
+                mouseHitBox.Position.y++;
+            }
             if (Keyboard.IsKeyDown(Key.A))
             {
-                myCube.ApplyForce(Vector3.Left * speed);
+                mouseHitBox.Position.x--;
             }
             if (Keyboard.IsKeyDown(Key.S))
             {
-                myCube.ApplyForce(Vector3.Down * speed);
+                mouseHitBox.Position.y--;
             }
-
-            if (Mouse.LeftButton == MouseButtonState.Pressed)
+            if (Keyboard.IsKeyDown(Key.D))
             {
-
+                mouseHitBox.Position.x++;
             }
+
+            float r = (float)Randomizer.Gaussian(0, 1);
+            float g = (float)Randomizer.Generate(0, 1);
+            float b = (float)Randomizer.Generate(0, 1);
+            gl.Color(r,g,b);
+            mouseHitBox.Draw(gl);
+
         }
     }
 }
