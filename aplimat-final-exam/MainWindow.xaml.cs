@@ -29,7 +29,7 @@ namespace aplimat_final_exam
         private Vector3 gravity = new Vector3(0, -.2f, 0);
         private Vector3 mGravity = new Vector3();
         private float yBottom = -45;
-        private float speed = 0.1f;
+        private Liquid ocean = new Liquid(0, -20, 50, 50, 0.8f);
         private CubeMesh mouseHitBox = new CubeMesh()
         {
             Position = new Vector3(0, 0, 0)
@@ -107,23 +107,25 @@ namespace aplimat_final_exam
             gl.Translate(0.0f, 0.0f, -100.0f);
 
             // Draw
+            ocean.Draw(gl);
+            gl.Color(1.0f, 1.0f, 1.0f);
 
             mousePos.Normalize();
             mousePos *= 10;
             mGravity = mousePos;
-            mouseHitBox.Scale = new Vector3(1.0f,1.0f,1.0f);
+            mouseHitBox.Scale = new Vector3(1.5f,1.5f,1.5f);
 
             frames++;
             if (frames % 10 == 0 && count < 20)
             {
                 CubeMesh cube = new CubeMesh();
-                float x = (float)Randomizer.Generate(-10, 10);
+                float x = (float)Randomizer.Generate(-20, 20);
                 float y = (float)Randomizer.Generate(30, 35);
                 float z = 0;
                 cube.Position = new Vector3(x, y, z);
                 float cubeScale = (float)Randomizer.Generate(0, 3);
                 cube.Scale *= cubeScale;
-                cube.Mass = (float)Randomizer.Generate(1, 6);
+                cube.Mass = (float)Randomizer.Generate(2, 6);
                 cubes.Add(cube);
                 count++;
             }
@@ -131,6 +133,11 @@ namespace aplimat_final_exam
             foreach (var c in cubes)
             {
                 c.ApplyGravity();
+                if (ocean.Contains(c))
+                {
+                    var dragForce = ocean.CalculateDragForce(c);
+                    c.ApplyForce(dragForce);
+                }
                 if (c.Position.y <= yBottom)
                 {
                     c.Velocity.y *= -1;
@@ -140,7 +147,8 @@ namespace aplimat_final_exam
                 {
                     Console.WriteLine("HIT");
                     //mouseHitBox.Position.x--;
-                    c.Velocity *= -1;
+                    //c.Velocity *= -1;
+                    c.Scale *= 0;
                 }
                 gl.Color(1.0f, 1.0f, 1.0f);
                 c.Draw(gl);
